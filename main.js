@@ -56,8 +56,8 @@ var detailView = function(picture, jobTitle, lowRate, highRate, avgRate) {
   <div class="card" style="width: 18rem;">
   ${picture ? `<img src="${picture[0].url}">` : ``}
   <div class="card-body">
-      <h2 class="card-title">${jobTitle}</h2>
-      <p class="card-text">Low Salary: $${lowRate} <br> High Salary: $${highRate} <br> Average Salary: $${avgRate}</p>
+      <h2 class="card-title">${jobTitle}</h2> 
+      <p class="card-text"><u>Bi-Weekly Salaries</u> <br> Low Salary: $${lowRate} <br> High Salary: $${highRate} <br> (Average Salary: $${avgRate})</p>
   </div> 
   </div>
   <div class="back">

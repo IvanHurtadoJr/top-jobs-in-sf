@@ -33,7 +33,9 @@ var getOneRecord = function(id) {
       var lowRate = record.fields['Bi-Weekly Low Rate'];
       var highRate = record.fields['Bi-Weekly High Rate'];
       var avgRate = record.fields['Average Bi-Weekly Rate'];
-      html.push(detailView(picture, jobTitle, lowRate, highRate, avgRate ));
+      var description = record.fields['Description'];
+      var certificates = record.fields['Certifications'];
+      html.push(detailView(picture, jobTitle, lowRate, highRate, avgRate, description, certificates ));
       $('.detail-view').append(html);
     }
   );
@@ -45,24 +47,43 @@ var listView = function(id, picture, jobTitle, avgRate) {
     ${picture ? `<img src="${picture[0].url}">` : ``}
     <div class="card-body">
       <h2 class="card-title"><a href="index.html?id=${id}">${jobTitle}</h2></a>
-      <p class="card-text">Average Bi-Weekly Salary: $${avgRate}</p>
+      <p class="card-text"><u>Average Bi-Weekly Salary:</u> $${avgRate}</p>
       </div>
     </div>
   `;
 }
 
-var detailView = function(picture, jobTitle, lowRate, highRate, avgRate) {
+var detailView = function(picture, jobTitle, lowRate, highRate, avgRate, description, certificates) {
   return `
+<div class="info">
+<div class="card-deck">
   <div class="card" style="width: 18rem;">
-  ${picture ? `<img src="${picture[0].url}">` : ``}
-  <div class="card-body">
-      <h2 class="card-title">${jobTitle}</h2> 
-      <p class="card-text"><u>Bi-Weekly Salaries</u> <br> Low Salary: $${lowRate} <br> High Salary: $${highRate} <br> (Average Salary: $${avgRate})</p>
-  </div> 
+    ${picture ? `<img src="${picture[0].url}">` : ``}
+      <div class="card-body">
+        <h2 class="card-title">${jobTitle}</h2> 
+        <p class="card-text"><u>Bi-Weekly Salaries</u> <br> Low Salary: $${lowRate} <br> High Salary: $${highRate} <br> (Average Salary: $${avgRate})</p>
+      </div> 
   </div>
+  
+   <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title">Job Description</h2> 
+      <p class="card-text">${description}</p>
+    </div>
+   </div> 
+  
+    
+   <div class="card" style="width: 18rem;">
+    <div class="card-body">   
+      <h2 class="card-title">Certifications</h2>
+      <p class="card-text">${certificates}</p>
+     </div> 
+   </div>  
+ </div>   
+</div>  
   <div class="back">
   <p><button type="button"><a href="index.html">Back</button></a>
-  </div>
+  </div> 
   `;
 }
 

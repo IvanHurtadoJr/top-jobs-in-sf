@@ -8,6 +8,14 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function toCommas(value) {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+console.log(toCommas(123456789)); // 123,456,789
+
+console.log(toCommas(1234567890)); // 1,234,567,890
+console.log(toCommas(1234)); // 1,234
+
 var getAllRecords = function() {
   $.getJSON('https://api.airtable.com/v0/appGoA98d9s6dxCa5/JobList?api_key=keyFuWRwQfq7HfdFB',
     function(airtable){
@@ -47,7 +55,7 @@ var listView = function(id, picture, jobTitle, avgRate) {
     ${picture ? `<img src="${picture[0].url}">` : ``}
     <div class="card-body">
       <h2 class="card-title"><a href="index.html?id=${id}">${jobTitle}</h2></a>
-      <p class="card-text"><u>Average Bi-Weekly Salary:</u> $${avgRate}</p>
+      <p class="card-text"><u>Average Annual Salary:</u><p> $${toCommas(avgRate*24)}</p>
       </div>
     </div>
   `;
@@ -61,7 +69,7 @@ var detailView = function(picture, jobTitle, lowRate, highRate, avgRate, descrip
     ${picture ? `<img src="${picture[0].url}">` : ``}
       <div class="card-body">
         <h2 class="card-title">${jobTitle}</h2> 
-        <p class="card-text"><u>Bi-Weekly Salaries</u> <br> Low Salary: $${lowRate} <br> High Salary: $${highRate} <br> (Average Salary: $${avgRate})</p>
+        <p class="card-text"><u>Annual Salaries</u> <br> Low Salary: $${toCommas(lowRate*24)} <br> High Salary: $${toCommas(highRate*24)} <br> (Average Salary: $${toCommas(avgRate*24)})</p>
       </div> 
   </div>
   
@@ -93,3 +101,4 @@ if (id) {
 } else {
   getAllRecords();
 }
+

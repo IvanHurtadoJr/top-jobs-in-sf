@@ -11,10 +11,6 @@ function getParameterByName(name, url) {
 function toCommas(value) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-console.log(toCommas(123456789)); // 123,456,789
-
-console.log(toCommas(1234567890)); // 1,234,567,890
-console.log(toCommas(1234)); // 1,234
 
 var getAllRecords = function() {
   $.getJSON('https://api.airtable.com/v0/appGoA98d9s6dxCa5/JobList?api_key=keyFuWRwQfq7HfdFB',
@@ -43,7 +39,7 @@ var getOneRecord = function(id) {
       var avgRate = record.fields['Average Bi-Weekly Rate'];
       var description = record.fields['Description'];
       var certificates = record.fields['Certifications'];
-      html.push(detailView(picture, jobTitle, lowRate, highRate, avgRate, description, certificates ));
+      html.push(detailView(picture, jobTitle, lowRate, highRate, avgRate, description, certificates, formattedString ));
       $('.detail-view').append(html);
     }
   );
@@ -61,6 +57,9 @@ var listView = function(id, picture, jobTitle, avgRate) {
   `;
 }
 
+function formattedString(value) {
+  return value.split(",").join("<li>")
+} 
 var detailView = function(picture, jobTitle, lowRate, highRate, avgRate, description, certificates) {
   return `
 <div class="info">
@@ -84,7 +83,7 @@ var detailView = function(picture, jobTitle, lowRate, highRate, avgRate, descrip
    <div class="card" style="width: 18rem;">
     <div class="card-body">   
       <h2 class="card-title">Certifications</h2>
-      <p class="card-text">${certificates}</p>
+      <p class="card-text">${formattedString(certificates)}</p>
      </div> 
    </div>  
  </div>   

@@ -47,7 +47,7 @@ var getOneRecord = function(id) {
 
 var listView = function(id, picture, jobTitle, avgRate) {
   return `
-    <div class="card" style="width: 18rem;">
+    <div class="card border-dark" style="width: 18rem;">
     ${picture ? `<img src="${picture[0].url}">` : ``}
     <div class="card-body">
       <h2 class="card-title"><a href="index.html?id=${id}">${jobTitle}</h2></a>
@@ -64,7 +64,7 @@ var detailView = function(picture, jobTitle, lowRate, highRate, avgRate, descrip
   return `
 <div class="info">
 <div class="card-deck">
-  <div class="card" style="width: 18rem;">
+  <div class="card border-dark" style="width: 18rem;">
     ${picture ? `<img src="${picture[0].url}">` : ``}
       <div class="card-body">
         <h2 class="card-title">${jobTitle}</h2> 
@@ -72,15 +72,13 @@ var detailView = function(picture, jobTitle, lowRate, highRate, avgRate, descrip
       </div> 
   </div>
   
-   <div class="card" style="width: 18rem;">
+   <div class="card border-dark" style="width: 18rem;">
     <div class="card-body">
       <h2 class="card-title">Job Description</h2> 
       <p class="card-text">${description}</p>
     </div>
-   </div> 
-  
-    
-   <div class="card" style="width: 18rem;">
+   </div>    
+   <div class="card border-dark" style="width: 18rem;">
     <div class="card-body">   
       <h2 class="card-title">Certifications</h2>
       <p class="card-text">${formattedString(certificates)}</p>
@@ -100,4 +98,3 @@ if (id) {
 } else {
   getAllRecords();
 }
-

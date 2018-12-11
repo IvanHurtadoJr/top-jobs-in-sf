@@ -1,8 +1,7 @@
 .card img {
-    /*max-width: 100%;*/
+    max-width: 100%;
     width: 265px;
     height: 265px;
-
 }
 
 .content {
@@ -56,12 +55,4 @@
   .info {
     display: inline-flex;
     margin: 40px;
-  }
-
-  /*.desc {
-    margin-left: 30%;
-  }
-
-  .cert {
-    margin-left: 60%;
   }

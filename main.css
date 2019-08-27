@@ -1,58 +1,72 @@
 .card img {
-    max-width: 100%;
-    width: 265px;
-    height: 265px;
+  max-width: 100%;
+  width: 265px;
+  height: 265px;
 }
 
 .content {
   margin-top: 40px;
   margin-bottom: 40px;
-  }
+  width: 90%;
+}
 
-  .main img {
-    width: 600px;
-    height: 150px;
-    float: right;
-  }
+.main img {
+  width: 600px;
+  height: 150px;
+  float: right;
+}
 
-  .main {
-    margin-left: 50px;
-  }
+.main {
+  margin-left: 50px;
+}
 
-  .card {
-    margin-bottom: 30px;
-    padding-left: 10px;
-    padding-top: 10px;
-    height: 500px;    
-  }
+.card {
+  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: 500px;
+}
 
-  .list-view {
-    display: flex inline-block;
-    columns: 2;
-    margin-left: 110px;
-    width: 100%;
-  }
+.list-view {
+  display: flex inline-block;
+  columns: 2;
+  margin-left: 180px;
+  width: 90%;
+}
 
-  .info {
-    display: inline;
-  }
+.detail-view {
+  width: 100%;
+}
+
+.detail-view .card {
+  height: 620px;
+  padding-right: 10px;
+}
+
+img .detail-view {
+  width: 400px;
+}
+
+.info {
+  display: inline;
+}
 
 .background {
-    border-top-style: groove;
-    border-top-width: 20px;
-    border-right-style: groove;
-    border-right-width: 20px;
-    border-bottom-style: groove;
-    border-bottom-width: 20px;
-    border-left-style: groove;
-    border-left-width: 20px;
-  }
+  border-top-style: groove;
+  border-top-width: 20px;
+  border-right-style: groove;
+  border-right-width: 20px;
+  border-bottom-style: groove;
+  border-bottom-width: 20px;
+  border-left-style: groove;
+  border-left-width: 20px;
+}
 
-  .back {
-    margin-left: 115px;
-  }
+.back {
+  margin-left: 45%;
+}
 
-  .info {
-    display: inline-flex;
-    margin: 40px;
-  }
+.info {
+  display: inline-flex;
+  margin: 40px;
+}

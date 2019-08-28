@@ -36,6 +36,7 @@
 
 .detail-view {
   width: 100%;
+  margin-left: 55px;
 }
 
 .detail-view .card {
